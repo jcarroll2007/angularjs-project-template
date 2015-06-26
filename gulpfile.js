@@ -15,20 +15,20 @@
     gulp.task("inject", function () {
         return gulp.src("./src/index.html")
             .pipe(inject(gulp.src(bowerFiles(), {
-                "base": "./static/bower_components",
+                "base": "./dist/bower_components",
                 "read": false
             }), {
                 "name": "bower",
-                "ignorePath": "static",
-                "addPrefix": "/static/client-side"
+                "ignorePath": "dist",
+                "addPrefix": "/dist/client-side"
             }))
-            .pipe(gulp.dest("./static/index/"));
+            .pipe(gulp.dest("./dist/"));
     });
 
     gulp.task("sass", function () {
-        return gulp.src("./src/styles.scss")
+        return gulp.src("./src/main.scss")
             .pipe(sass())
-            .pipe(gulp.dest("./static/"));
+            .pipe(gulp.dest("./dist/"));
     });
 
     gulp.task("jslint", function () {
@@ -46,7 +46,7 @@
             .pipe(gulpIgnore.exclude("*.spec.js"))
             .pipe(concat("app.js"))
             .pipe(annotate())
-            .pipe(gulp.dest("./static/"));
+            .pipe(gulp.dest("./dist/"));
     });
 
     gulp.task("templates", function () {
@@ -55,7 +55,7 @@
                 module: "templates",
                 standalone: true
             }))
-            .pipe(gulp.dest("./static/"));
+            .pipe(gulp.dest("./dist/"));
     });
 
     gulp.task("test", ["js", "templates"], function (done) {
@@ -69,7 +69,7 @@
 
     gulp.task("images", function () {
         return gulp.src("./src/images/**/*")
-            .pipe(gulp.dest("./static/images/"));
+            .pipe(gulp.dest("./dist/images/"));
     });
 
 
