@@ -1,16 +1,15 @@
 (function () {
     "use strict";
     var gulp = require("gulp"),
-        concat = require("gulp-concat"),
-        inject = require("gulp-inject"),
-        sass = require("gulp-sass"),
-        // watch = require("gulp-watch"),
-        templateCache = require("gulp-angular-templatecache"),
         annotate = require("gulp-ng-annotate"),
-        karma = require("karma").server,
-        jslint = require("gulp-jslint"),
+        bowerFiles = require("main-bower-files"),
+        concat = require("gulp-concat"),
         gulpIgnore = require("gulp-ignore"),
-        bowerFiles = require("main-bower-files");
+        inject = require("gulp-inject"),
+        jslint = require("gulp-jslint"),
+        karma = require("karma").server,
+        sass = require("gulp-sass"),
+        templateCache = require("gulp-angular-templatecache");
 
     gulp.task("inject", function () {
         return gulp.src("./src/index.html")
