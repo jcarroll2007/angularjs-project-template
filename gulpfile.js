@@ -1,9 +1,9 @@
 (function () {
     "use strict";
     var gulp = require("gulp"),
+        concat = require("gulp-concat"),
         inject = require("gulp-inject"),
         sass = require("gulp-sass"),
-        concat = require("gulp-concat"),
         // watch = require("gulp-watch"),
         templateCache = require("gulp-angular-templatecache"),
         annotate = require("gulp-ng-annotate"),
@@ -18,10 +18,13 @@
                 "base": "./dist/bower_components",
                 "read": false
             }), {
-                "name": "bower",
-                "ignorePath": "dist",
-                "addPrefix": "/dist/client-side"
+                "name": "bower"
             }))
+            .pipe(inject(gulp.src([
+                "./dist/main.css",
+                "./dist/app.js",
+                "./dist/templates.js"
+            ])))
             .pipe(gulp.dest("./dist/"));
     });
 
@@ -32,9 +35,9 @@
     });
 
     gulp.task("jslint", function () {
-        return gulp.src(["gulpfile.js", "./src/**/*.js"])
+        return gulp.src(["./src/**/*.js"])
             .pipe(jslint({
-                errorsOnly: true // only display output for files with errors
+                errorsOnly: true
             }))
             .on("error", function (error) {
                 console.error(String(error));
@@ -50,7 +53,7 @@
     });
 
     gulp.task("templates", function () {
-        return gulp.src("./src/**/*.html")
+        return gulp.src(["./src/**/*.html", '!./src/index.html'])
             .pipe(templateCache("templates.js", {
                 module: "templates",
                 standalone: true
@@ -81,7 +84,7 @@
         gulp.watch("./src/images/*.jpg", {interval: 500}, ["images"]);
     });
 
-    gulp.task("default", ["inject", "sass", "js", "templates", "test", "images", "watch"]);
+    gulp.task("default", ["inject", "sass", "js", "templates", "images", "watch"]);
 
-    gulp.task("build", ["inject", "sass", "js", "templates", "test", "images"]);
+    gulp.task("build", ["inject", "sass", "js", "templates", "images"]);
 }());
