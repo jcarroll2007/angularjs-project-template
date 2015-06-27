@@ -13,9 +13,7 @@
 
     gulp.task('inject', function () {
         return gulp.src('./src/index.html')
-            .pipe(inject(gulp.src(bowerFiles(), {
-                'base': './dist/bower_components',
-                'read': false
+            .pipe(inject(gulp.src(bowerFiles(), {'base': './dist/bower_components','read': false
             }), {
                 'name': 'bower'
             }))
@@ -51,6 +49,11 @@
             .pipe(gulp.dest('./dist/'));
     });
 
+    gulp.task('bower', function() {
+        return gulp.src(bowerFiles(), {base: './bower_components'})
+            .pipe(gulp.dest('./dist/bower_components'));
+    });
+
     gulp.task('templates', function () {
         return gulp.src(['./src/**/*.html', '!./src/index.html'])
             .pipe(templateCache('templates.js', {
@@ -75,14 +78,14 @@
     });
 
     gulp.task('watch', function () {
-        gulp.watch('./src/index.html', {interval: 500}, ['inject']);
-        gulp.watch('./src/**/*.scss', {interval: 500}, ['sass']);
-        gulp.watch('./src/**/*.js', {interval: 500}, ['js', 'test']);
-        gulp.watch('./src/**/*.html', {interval: 500}, ['templates']);
-        gulp.watch('./src/images/*.jpg', {interval: 500}, ['images']);
+        gulp.watch('./src/index.html',      {interval: 500}, ['inject']);
+        gulp.watch('./src/**/*.scss',       {interval: 500}, ['sass']);
+        gulp.watch('./src/**/*.js',         {interval: 500}, ['js']);
+        gulp.watch('./src/**/*.html',       {interval: 500}, ['templates']);
+        gulp.watch('./src/images/*.jpg',    {interval: 500}, ['images']);
     });
 
-    gulp.task('default', ['inject', 'sass', 'js', 'templates', 'images', 'watch']);
+    gulp.task('default', ['inject', 'sass', 'js', 'bower', 'templates', 'images', 'watch']);
 
     gulp.task('build', ['inject', 'sass', 'js', 'templates', 'images']);
 }());
