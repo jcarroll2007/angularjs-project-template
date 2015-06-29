@@ -9,7 +9,34 @@
 }());
 (function () {
     'use strict';
-    angular.module('app.routes', []);
+
+    function config($stateProvider, $urlRouterProvider) {
+
+        ///////////////////////////
+        // Redirects and Otherwise
+        ///////////////////////////
+        $urlRouterProvider
+            .otherwise('/');
+
+        ///////////////////////////
+        // State Configurations
+        ///////////////////////////
+
+        $stateProvider
+
+
+            ///////////////////////////
+            // Home
+            ///////////////////////////
+            .state('app', {
+                url: '/',
+                templateUrl: 'app/app.html'
+            });
+    }
+    config.$inject = ["$stateProvider", "$urlRouterProvider"];
+
+    angular.module('app.routes', [])
+        .config(config);
 }());
 (function () {
     'use strict';

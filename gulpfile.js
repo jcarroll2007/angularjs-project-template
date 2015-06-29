@@ -21,7 +21,10 @@
                 './dist/main.css',
                 './dist/app.js',
                 './dist/templates.js'
-            ])))
+            ]), {
+                ignorePath: 'dist',
+                addRootSlash: false
+            }))
             .pipe(gulp.dest('./dist/'));
     });
 

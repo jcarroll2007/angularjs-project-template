@@ -15,10 +15,14 @@
 
         $stateProvider
 
+
+            ///////////////////////////
+            // Home
+            ///////////////////////////
             .state('app', {
-                url: '/'
-                templateUrl:
-            })
+                url: '/',
+                templateUrl: 'app/app.html'
+            });
     }
 
     angular.module('app.routes', [])
