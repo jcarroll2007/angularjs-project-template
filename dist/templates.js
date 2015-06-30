@@ -1,2 +1,0 @@
-angular.module("templates", []).run(["$templateCache", function($templateCache) {$templateCache.put("app/app.html","This is the home page.\r\n\r\n<a ui-sref=\"app.about\">About App</a>\r\n\r\n\r\n<ui-view class=\"content\"></ui-view>");
-$templateCache.put("app/about/about.html","This is about my app.");}]);
