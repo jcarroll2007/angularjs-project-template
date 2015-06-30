@@ -1,7 +1,9 @@
 (function () {
     'use strict';
 
-    angular.module('app', [
+    angular.module('myAppName', [
+        'ui.router',
+        'templates',
         'app.routes',
         'app.common'
     ]);

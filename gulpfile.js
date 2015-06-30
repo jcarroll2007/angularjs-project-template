@@ -7,14 +7,13 @@
         gulpIgnore = require('gulp-ignore'),
         inject = require('gulp-inject'),
         jslint = require('gulp-jslint'),
-        karma = require('karma').server,
         sass = require('gulp-sass'),
+        server = require('gulp-server-livereload'),
         templateCache = require('gulp-angular-templatecache');
 
     gulp.task('inject', function () {
         return gulp.src('./src/index.html')
-            .pipe(inject(gulp.src(bowerFiles(), {'base': './dist/bower_components','read': false
-            }), {
+            .pipe(inject(gulp.src(bowerFiles(), {'base': './dist/bower_components','read': false}), {
                 'name': 'bower'
             }))
             .pipe(inject(gulp.src([
@@ -36,9 +35,7 @@
 
     gulp.task('jslint', function () {
         return gulp.src(['./src/**/*.js'])
-            .pipe(jslint({
-                errorsOnly: true
-            }))
+            .pipe(jslint({errorsOnly: true}))
             .on('error', function (error) {
                 console.error(String(error));
             });
@@ -59,20 +56,8 @@
 
     gulp.task('templates', function () {
         return gulp.src(['./src/**/*.html', '!./src/index.html'])
-            .pipe(templateCache('templates.js', {
-                module: 'templates',
-                standalone: true
-            }))
+            .pipe(templateCache('templates.js', {module: 'templates', standalone: true }))
             .pipe(gulp.dest('./dist/'));
-    });
-
-    gulp.task('test', ['js', 'templates'], function (done) {
-        karma.start({
-            configFile: __dirname + '/karma.conf.js',
-            singleRun: true
-        }, function () {
-            done();
-        });
     });
 
     gulp.task('images', function () {
@@ -88,7 +73,16 @@
         gulp.watch('./src/images/*.jpg',    {interval: 500}, ['images']);
     });
 
-    gulp.task('default', ['inject', 'sass', 'js', 'bower', 'templates', 'images', 'watch']);
+    gulp.task('serve', function () {
+        gulp.src('./dist/')
+            .pipe(server({
+                livereload: true,
+                defaultFile: 'index.html',
+                open: true
+            }))
+    });
+
+    gulp.task('default', ['inject', 'sass', 'js', 'bower', 'templates', 'images', 'watch', 'serve']);
 
     gulp.task('build', ['inject', 'sass', 'js', 'templates', 'images']);
 }());

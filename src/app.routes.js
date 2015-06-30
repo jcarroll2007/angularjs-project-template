@@ -22,6 +22,14 @@
             .state('app', {
                 url: '/',
                 templateUrl: 'app/app.html'
+            })
+
+            ///////////////////////////
+            // About
+            ///////////////////////////
+            .state('app.about', {
+                url: 'about',
+                templateUrl: 'app/about/about.html'
             });
     }
 

@@ -1,7 +1,9 @@
 (function () {
     'use strict';
 
-    angular.module('app', [
+    angular.module('myAppName', [
+        'ui.router',
+        'templates',
         'app.routes',
         'app.common'
     ]);
@@ -31,6 +33,14 @@
             .state('app', {
                 url: '/',
                 templateUrl: 'app/app.html'
+            })
+
+            ///////////////////////////
+            // About
+            ///////////////////////////
+            .state('app.about', {
+                url: 'about',
+                templateUrl: 'app/about/about.html'
             });
     }
     config.$inject = ["$stateProvider", "$urlRouterProvider"];
