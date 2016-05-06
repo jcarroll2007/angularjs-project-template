@@ -6,7 +6,5 @@
     // in multiple places across your app.
 
     angular.module('common', [
-        'common.autofocus',
-        'common.navbar'
     ]);
 }());

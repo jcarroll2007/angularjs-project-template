@@ -5,8 +5,8 @@
   "private": true,
   "dependencies": {
     "angular": "1.4.9",
-    "angular-bootstrap": "0.13.4",
     "angular-ui-router": "0.2.18",
+    "bootstrap-sass": "3.3.4",
     "fontawesome": "~4.6.1"
   },
   "resolutions": {

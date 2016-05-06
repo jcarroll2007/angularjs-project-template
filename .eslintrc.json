@@ -1,0 +1,44 @@
+{
+    "extends": "eslint:recommended",
+    "env": {
+        "browser": true,
+        "node": true,
+        "jasmine": true
+    },
+    "globals": {
+        "angular": true,
+        "_": true,
+        "moment": true,
+        "module": true,
+        "inject": true
+    },
+    "rules": {
+        "new-cap": [1, { "newIsCap": true, "capIsNew": false }],
+        "no-console": 1,
+        "no-alert": 1,
+        "no-eval": 1,
+        "no-implied-eval": 1,
+        "no-bitwise": 1,
+        "no-cond-assign": [1, "always"],
+        "no-labels": 1,
+        "no-loop-func": 1,
+        "no-void": 1,
+        "no-irregular-whitespace": 1,
+        "radix": [1, "always"],
+        "wrap-iife": [1, "any"],
+        "no-warning-comments": [1, { "terms": ["TODO", "FIXME"], "location": "start" }],
+        "eqeqeq": 1,
+        "no-implicit-coercion": [1, { "boolean": true, "number": true, "string": true }],
+        "semi": [1, "always"],
+        "no-extra-semi": 1,
+        "space-before-function-paren": [1, { "anonymous": "always", "named": "never" }],
+        "no-empty": 1,
+        "curly": 1,
+        "no-undef": 1,
+        "no-unused-vars": [1, { "vars": "local", "args": "all" }],
+        "no-inner-declarations": [1, "both"],
+        "block-scoped-var": 1,
+        "no-unreachable": 1,
+        "guard-for-in": 1
+    }
+}
