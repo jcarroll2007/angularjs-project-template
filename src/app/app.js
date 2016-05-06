@@ -11,15 +11,12 @@
                 url: '/',
                 templateUrl: 'app/app.html',
                 abstract: true
-            })
-            .state('app.home', {
-                url: '',
-                templateUrl: 'app/home/home.html'
             });
     }
 
     angular.module('app', [
-        'ui.router'
+        'app.home',
+        'app.about'
     ])
         .config(config);
 }());
