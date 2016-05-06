@@ -17,22 +17,33 @@
 
 
             ///////////////////////////
-            // Home
+            // App
             ///////////////////////////
             .state('app', {
                 url: '/',
-                templateUrl: 'app/app.html'
+                templateUrl: 'app/app.html',
+                abstract: true
             })
 
             ///////////////////////////
-            // About
+            // Home
             ///////////////////////////
-            .state('app.about', {
-                url: 'about',
-                templateUrl: 'app/about/about.html'
+            .state('app.home', {
+                url: '',
+                templateUrl: 'app/home/home.html'
             });
     }
 
-    angular.module('app.routes', [])
-        .config(config);
+    function init($rootScope) {
+        $rootScope.debug = true;
+    }
+
+    angular.module('app', [
+        'app.share',
+        'app.reasons',
+        'ui.router',
+        'ngAnimate'
+    ])
+        .config(config)
+        .run(init);
 }());

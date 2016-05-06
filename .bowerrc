@@ -1,0 +1,7 @@
+{
+	"directory": "./dist/bower_components",
+	"ignoredDependencies": [
+		"bootstrap"
+	],
+	"analytics": false
+}

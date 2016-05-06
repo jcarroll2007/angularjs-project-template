@@ -1,0 +1,15 @@
+@import "styles/styles";
+
+@import "app/app";
+@import "common/common";
+
+body {
+	overflow: hidden;
+}
+
+.main-view {
+	max-height: calc(100vh - #{$navbar-height});
+	margin-top: $navbar-height;
+	overflow-y: auto;
+	overflow-x: hidden;
+}

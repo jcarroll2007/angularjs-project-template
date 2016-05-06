@@ -1,0 +1,49 @@
+nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: $navbar-height;
+
+	.brand {
+		color: $font-color;
+		padding: 1.75em 1.5em .5em 1.5em;
+		display: block;
+		text-decoration: none;
+		white-space: nowrap;
+		font-size: 18px;
+	}
+
+	.pure-menu-item {
+		margin-top: 1.25em;
+		font-size: 18px;
+		cursor: pointer;
+		background-color: transparent !important;
+	}
+	.pure-menu-link {
+		color: $font-color;
+		display: inline-block;
+		background: none !important;
+	}
+	.pure-menu-link:after {
+		content: '';
+		display: block;
+		bottom: 0;
+		left: 50%;
+		position: absolute;
+		height: 3px;
+		width: 0px;
+		background: transparent;
+		transition: width .5s ease, background-color .5s ease, left .5s ease;
+	}
+	.pure-menu-link:hover:after {
+		width: 100%;
+		background: rgba(90, 144, 220, 0.65);
+		left: 0;
+	}
+	.pure-menu-item.active .pure-menu-link:after {
+		width: 100%;
+		background: rgba(90, 144, 220, 0.65);
+		left: 0;
+	}
+}

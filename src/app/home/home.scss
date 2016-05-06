@@ -1,0 +1,21 @@
+.home-content {
+	text-align: center;
+	color: $font-color;
+	margin-top: 150px;
+
+	p {
+		font-size: 1.2em;
+		font-weight: 200;
+	}
+
+	hr {
+		border-width: 0 0 1px 0;
+		border-color: white;
+		width: 50px;
+	}
+
+	.btn {
+		margin-top: 20px;
+	}
+}
+

@@ -19,3 +19,5 @@ sudo apt-get install -y nodejs
 ```
 sudo mount -o bind /srv/node_modules/ /vagrant/node_modules/
 ```
+
+Loading GIF: http://loading.io/loader/?use=eyJzaXplIjoyNiwic3BlZWQiOiIzIiwiY2JrIjoiIzZlNmU2ZSIsImMxIjoiIzVhOTBkYyIsImMyIjoiI2ZmZmZmZiIsImMzIjoiNCIsInR5cGUiOiJyaXBwbGUifQ==

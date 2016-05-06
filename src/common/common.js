@@ -5,5 +5,8 @@
     // A common component is a component that will be used
     // in multiple places across your app.
 
-    angular.module('app.common', []);
+    angular.module('common', [
+        'common.autofocus',
+        'common.navbar'
+    ]);
 }());

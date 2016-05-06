@@ -1,5 +1,4 @@
 {
-    "predef": {
-    	"angular": true
-    }
+    "predef": ["angular", "window", "console"],
+    "nomen": true
 }
