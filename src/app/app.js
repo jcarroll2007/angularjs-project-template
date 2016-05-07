@@ -16,7 +16,9 @@
 
     angular.module('app', [
         'app.home',
-        'app.about'
+        'app.about',
+        'app.users',
+        'app.common.navbar'
     ])
         .config(config);
 }());

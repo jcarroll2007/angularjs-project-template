@@ -1,12 +1,32 @@
 <main>
 	<div class="container">
 		<div class="well text-center" style="margin-top: 30px;">
-			<h1>Angular Project Template</h1>
-			<p>Welcome to the Angular Project Template tutorial. You have succesffully gotten the dev server running!</p>
+			<h1>User Management System</h1>
+			<p>Welcome to the User Management System! - Created by Jordan Carroll from Georgia Tech Research Institute</p>
 			<br>
-			<p>
-				<a ui-sref="app.about">Learn More About This App</a>
-			</p>
+
+			<div class="row">
+
+				<div class="col-xs-6">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<p>Click the button below to create a new user.</p>
+							<a class="btn btn-primary" ui-sref="app.createUser">
+								Create New User
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<p>Click the button below to view a list of users that you can manage.</p>
+							<button class="btn btn-primary">Manage Users</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
 		</div>
 	</div>
 </main>

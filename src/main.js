@@ -5,7 +5,6 @@
         'ui.router',
         'api',
         'app',
-        'common',
         'models',
         'templates'
     ]);
