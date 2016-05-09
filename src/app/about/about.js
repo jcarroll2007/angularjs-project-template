@@ -5,7 +5,7 @@
             url: 'about',
             templateUrl: 'app/about/about.html'
 		});
-	};
+	}
 
 	angular.module('app.about', [])
 		.config(stateConfig);

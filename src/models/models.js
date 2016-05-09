@@ -2,6 +2,6 @@
     'use strict';
 
     angular.module('models', [
-        'app.users'
+        'models.users'
     ]);
 }());

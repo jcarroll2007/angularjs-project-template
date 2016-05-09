@@ -23,7 +23,7 @@
     config = {
         src: 'src',
         dist: ''
-    }
+    };
 
     function start(task) {
         return function () {
@@ -239,7 +239,7 @@
         runSequence('eslint', 'test', callback);
     });
 
-    gulp.task('build:watch', ['build'], function () {
+    gulp.task('build:watch', ['build', 'eslint'], function () {
         gulp.src('./dist/')
             .pipe(plugins.serverLivereload({
                 livereload: true,

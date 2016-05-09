@@ -1,10 +1,20 @@
 (function () {
 
-	function CreateUserController(Users) {
+	function CreateUserController(Users, $state) {
 		this.newUser = {};
 
 		this.submitForm = function () {
-			console.log(this.newUser);
+			if (!this.newUser.firstName ||
+				!this.newUser.lastName ||
+				!this.newUser.email ||
+				!this.newUser.password) {
+				return;
+			}
+
+			Users.save(this.newUser);
+			this.newUser = {};
+
+			$state.go('app.users');
 		};
 	}
 
